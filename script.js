@@ -16,19 +16,13 @@ tabs.forEach(tab=>{
 })
 
 
-const div = document.querySelector(".who-am-i")
-const icons = document.querySelector(".who-am-i svg");
-const paragraph = document.querySelector(".who-am-i p");
+const infos = document.querySelectorAll(".who-am-i")
+document.createElement("h2",)
 
-console.log(icons, paragraph);
+infos.forEach(info =>{
+    info.addEventListener("click", event =>{
+        info.classList.remove(".who-am-i")
+        info.classList.add(".who-am-i_gros")
 
-div.addEventListener("mouseenter", event => {
-    icons.style.display = "none";
-    paragraph.style.display = "flex"
-});
-
-div.addEventListener("mouseleave", event => {
-    icons.style.display = "flex";
-    paragraph.style.display = "none"
-
-});
+    })
+})
