@@ -15,14 +15,24 @@ tabs.forEach(tab=>{
 })
 })
 
+document.addEventListener("DOMContentLoaded", function () {
+    const whoAmIGrosElements = document.querySelectorAll('.who-am-i_gros');
 
-const infos = document.querySelectorAll(".who-am-i")
-document.createElement("h2",)
+    whoAmIGrosElements.forEach(element => {
+        element.dataset.originalContent = element.innerHTML;
 
-infos.forEach(info =>{
-    info.addEventListener("click", event =>{
-        info.classList.remove(".who-am-i")
-        info.classList.add(".who-am-i_gros")
+        element.addEventListener('mouseenter', () => {
+            const newContent = element.getAttribute('data-hover-content');
 
-    })
-})
+            element.innerHTML = newContent;
+
+            element.classList.add('transformed');
+        });
+
+        element.addEventListener('mouseleave', () => {
+           element.innerHTML = element.dataset.originalContent;
+
+            element.classList.remove('transformed');
+        });
+    });
+});
